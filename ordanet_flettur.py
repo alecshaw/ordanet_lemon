@@ -4,8 +4,6 @@ Orðanet Lemon Lemma Retrieval
 
 import pandas as pd
 import psycopg2
-import rdflib
-import re
 
 # Connect to the database
 conn = psycopg2.connect(dbname='thesaurus', user='alecshaw',
@@ -14,14 +12,15 @@ conn = psycopg2.connect(dbname='thesaurus', user='alecshaw',
 # Retrieve all lemmata from the flettur table
 query = 'SELECT * FROM flettur;'
 
-data = pd.read_sql(query, conn)
+flettur = pd.read_sql(query, conn)
+flettur.to_csv('flettur.csv')
+print(flettur.head())
 
-data.head()
+# Retrieve all concepts from the vw_hugtak table
+query = 'SELECT * FROM vw_hugtak;'
 
-data.dtypes
+hugtak = pd.read_sql(query, conn)
+hugtak.to_csv('hugtak.csv')
+print(hugtak.head())
 
-data.to_csv('flettur.csv')
-
-data.fletta.head()
-
-#  if data['fletta'].str.extract(r'(^[A-Za-z]+$)'):
+conn.close()
