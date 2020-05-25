@@ -1,0 +1,35 @@
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix dbr: <http://dbpedia.org/resource/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix decomp: <http://www.w3.org/ns/lemon/decomp#> .
+@prefix lime: <http://www.w3.org/ns/lemon/lime#> .
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix semiotics: <http://www.ontologydesignpatterns.org/cp/owl/semiotics.owl#> .
+@prefix oils: <http://lemon-model.net/oils#> .
+@prefix provo: <http://www.w3.org/ns/prov#> .
+@prefix skos: <http://www.w3.org/2004/02/skos#> .
+@prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
+@prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<#example-is> a lime:Lexicon ;
+rdfs:label "Orðanet dæmi (Íslenska)"@is ;
+dct:language "is" ;
+schema:email "alecshaw@hi.is" ;
+cc:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+owl:versionInfo "1.0" ;
+dct:publisher "Stofnun Árna Magnússonar í íslenskum fræðum" ;
+lime:entry <#w1> .
+
+<#w1> a ontolex:LexicalEntry ;
+ontolex:canonicalForm [
+  ontolex:writtenRep "þekkja"@is
+] ;
+wn:partOfSpeech wn:verb ;
+ontolex:sense <#example-is-52477-so-1> .  # ID taken from flid in database
+
+

@@ -1,0 +1,27 @@
+@base <http://ordanet.is/>
+@prefix ontology: <http://ordanet.is/#>
+@prefix lemon: <http://lemon-model.net/lemon#>
+
+:Orðanet a lemon:Lexicon ;
+  lemon:language "is" ;
+  lemon:entry :dýr .
+
+:dýr a lemon:LexicalEntry ;
+  lemon:form [lemon:writtenRep "dýr"@is] ;
+  lemon:sense [lemon:reference ontology:dýr] .
+
+:lex_vindur a ontolex:LexicalEntry ;
+  ontolex:lexicalForm :form_vindur_et_nf, :form_vindur_et_þf,
+  :form_vindur_et_þgf, :form_vindur_et_ef .
+
+:form_vindur_et_nf a ontolex:Form ;
+  ontolex:writtenRep "vindur"@is .
+
+:form_vindur_et_þf a ontolex:Form ;
+  ontolex:writtenRep "vind"@is .
+
+:form_vindur_et_þgf a ontolex:Form ;
+  ontolex:writtenRep "vindi"@is .
+
+:form_vindur_et_ef a ontolex:Form ;
+  ontolex:writtenRep "vinds"@is .

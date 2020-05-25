@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<rdf:RDF xmlns="http://ordanet.is/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:lemon="https://lemon-model.net/lemon#">
+
+  <lemon:Lexicon rdf:about="Orðanet" lemon:language="is">
+    <lemon:entry>
+      <lemon:LexicalEntry rdf:about="dýr">
+        <lemon:form rdf:parseType="Resource">
+          <lemon:writtenRep xml:lang="is">dýr</lemon:writtenRep>
+        </lemon:form>
+        <lemon:sense rdf:parseType="Resource">
+          <lemon:reference rdf:resource="http://ordanet.is/dýr"/>
+        </lemon:sense>
+      </lemon:LexicalEntry>
+    </lemon:entry>
+  </lemon:Lexicon>
+</rdf:RDF>
