@@ -15,22 +15,50 @@
 @prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
 @prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
 @prefix void: <http://rdfs.org/ns/void#> .
+# @prefix wn: <http://globalwordnet.github.io/schemas/wn#>, if we want to use
+# the WordNet lexico-semantic relations
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<#example-is> a lime:Lexicon ;
-rdfs:label "Orðanet dæmi (Íslenska)"@is ;
-dct:language "is" ;
-schema:email "alecshaw@hi.is" ;
-cc:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
-owl:versionInfo "1.0" ;
-dct:publisher "Stofnun Árna Magnússonar í íslenskum fræðum" ;
-lime:entry <#w1> .
+# 'a' refers to: http://www.w3.org/1999/02/22_rdf_syntax_ns#type
+:ordanet a lime:Lexicon ;
+  rdfs:label "Orðanet dæmi (Íslenska)"@is ;
+  dct:language "is" ;
+  schema:email "alecshaw@hi.is" ;
+  cc:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+  owl:versionInfo "1.0" ;
+  dct:publisher "Stofnun Árna Magnússonar í íslenskum fræðum" .
 
-<#w1> a ontolex:LexicalEntry ;
-ontolex:canonicalForm [
-  ontolex:writtenRep "þekkja"@is
-] ;
-wn:partOfSpeech wn:verb ;
-ontolex:sense <#example-is-52477-so-1> .  # ID taken from flid in database
+:þekkja a ontolex:Word ;
+  ontolex:canonicalForm [
+    ontolex:writtenRep "þekkja"@is
+  ] ;
+  synsem:synBehavior [
+    synsem:SyntacticFrame, lexinfo:
+  ] .
 
+:í_lex a ontolex:Word .
 
+:sundur_lex a ontolex:Word .
+
+:í_sundur a ontolex:MultiwordExpression ;
+  decomp:constituent :í_lex, :sundur_lex .
+
+# Third approach to "þekkja <tvíburana> í sundur" (Best thus far)
+:þekkja_tvíburana_i_sundur a ontolex:MultiwordExpression ;
+  decomp:constituent :þekkja_comp, :í_comp, :sundur_comp ;
+  decomp:subterm :í_sundur_comp .
+
+# First approach to "þekkja <tvíburana> í sundur"
+:þekkja_tvíburana_i_sundur a ontolex:MultiwordExpression ;
+  ontolex:canonicalForm [
+    ontolex:writtenRep "þekkja <tvíburana> í sundur"@is
+  ] ;
+  # TODO Orðanet stores this as "nafnorð í þolfalli með greini"
+  lexinfo:partOfSpeech ( lexinfo:verb lexinfo:noun lexinfo:preposition
+  lexinfo:adverb ) .
+
+# Second approach to "þekkja <tvíburana> í sundur"
+(:þekkja :í_sundur) a ontolex:MultiwordExpression ;
+  ontolex:canonicalForm [
+    ontolex:writtenRep "þekkja <tvíburana> í sundur"@is
+  ] .
